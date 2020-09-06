@@ -1,8 +1,11 @@
 import React from 'react';
+import Note from './components/Note';
+import data from './data/notes';
 import logo from './images/logo.jpg';
 import './App.css';
 
 function App() {
+
   return (
     <div className="App">
       <header className="App-header">
@@ -27,6 +30,15 @@ function App() {
         </a>
         </div>
       </header >
+      <content>
+        {
+          data.map((note) => {
+            return (
+              <Note title={note.title} noteText={note.content} />
+            );
+          })
+        }
+      </content>
     </div >
   );
 }
