@@ -11,9 +11,13 @@ class Note extends React.Component {
 
     render() {
         return (
-            <div className="note">
-                <h2>{this.props.title}</h2>
-                <div className="content">{this.props.noteText}</div>
+            <div className="col s12 m3">
+                <div className="card hoverable brown lighten-5">
+                    <div className="card-content">
+                        <span className="card-title"><h4>{this.props.title}</h4></span>
+                        <p>{this.props.noteText}</p>
+                    </div>
+                </div>
             </div>
         );
     }

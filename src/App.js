@@ -1,8 +1,10 @@
 import React from 'react';
 import Note from './components/note';
+import materializeCss from 'materialize-css/dist/css/materialize.css';
+import M from 'materialize-css';
 import data from './data/notes';
 import logo from './images/logo.jpg';
-import './App.css';
+import './css/App.css';
 
 class App extends React.Component {
 
@@ -14,6 +16,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    M.AutoInit();
     fetch("http://localhost:5000/Notes")
       .then(res => res.json())
       .then(
@@ -36,16 +39,16 @@ class App extends React.Component {
       <div className="App" >
         <header className="App-header">
           <img src={logo} className="App-logo" alt="BL - Bruno Lamarão" />
-          <div class="summary">
-            <h1>
+          <div className="summary">
+            <h2>
               A collection of my dev notes.
-            </h1>
+            </h2>
             <p>This site is intended to be a repository of my dev notes, but not only that.<br />
-              It's also my personal lab where I experiment with different technologies.<br />
-              Hopefully the notes will help others in search for a answer. Enjoy!</p>
+              It's also a space where I experiment with different technologies.<br />
+              Hopefully, the notes will help others in search of an answer. Enjoy!</p>
           </div>
-          <div class="rodape">
-            <h3>Bruno Lamarão</h3>
+          <div className="rodape">
+            <h4>Bruno Lamarão</h4>
             <a
               className="App-link"
               href="https://www.linkedin.com/in/brunolamarao/"
@@ -57,13 +60,15 @@ class App extends React.Component {
           </div>
         </header >
         <content>
-          {
-            notes.map((note) => {
-              return (
-                <Note title={note.title} noteText={note.content} />
-              );
-            })
-          }
+          <div className="row">
+            {
+              notes.map((note) => {
+                return (
+                  <Note title={note.title} noteText={note.content} />
+                );
+              })
+            }
+          </div>
         </content>
       </div >
     );
